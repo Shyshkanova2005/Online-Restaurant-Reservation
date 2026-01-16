@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, send_file, render_template_string, flash, g
+from flask import Flask, render_template, request, redirect, url_for, session, send_file, render_template_string, flash
 from flask_sqlalchemy import SQLAlchemy
 from models import db, Customer, Booking, Tables, MenuItem, OrderItem, User
 from flask_admin import Admin
