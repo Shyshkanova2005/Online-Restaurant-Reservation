@@ -20,42 +20,42 @@ The screenshots above demonstrate the main pages and functionality of the online
 
 ## 🏠 Home Page
 <p align="center">
-<img src="screenshots/main.png"/>
+<img src="screenshots/main.png" width="70%"/>
 </p>
 
 ## 📋 Menu Page
 <p align="center">
-<img src="screenshots/menu_part_one.png" width="70%"/>
-<img src="screenshots/menu_part_two.png" width="70%"/>
+<img src="screenshots/menu_part_one.png" width="45%"/>
+<img src="screenshots/menu_part_two.png" width="45%"/>
 </p>
 
 ## 🗓️ Booking Page
 <p align="center">
-<img src="screenshots/booking.png" width="70%"/>
-<img src="screenshots/contacts.png" width="70%"/>
+<img src="screenshots/booking.png" width="45%"/>
+<img src="screenshots/contacts.png" width="45%"/>
 </p>
 <p align="center">
-<img src="screenshots/confirmation.png" />
+<img src="screenshots/confirmation.png" width="70%"/>
 </p>
 
 ## 🛒 Cart
 <p align="center">
-<img src="screenshots/cart.png"/>
+<img src="screenshots/cart.png" width="70%"/>
 </p>
 
 ## 🛠️ Admin Panel
 <p align="center">
-<img src="screenshots/show.png"/>
+<img src="screenshots/show.png" width="70%"/>
 </p>
 
 ## 🔐 Authorization
 <p align="center">
-<img src="screenshots/authorize.png"/>
+<img src="screenshots/authorize.png" width="70%"/>
 </p>
 
 ## 👤 User Profile
 <p align="center">
-<img src="screenshots/profile.png"/>
+<img src="screenshots/profile.png" width="70%"/>
 </p>
 
 
