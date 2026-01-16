@@ -71,14 +71,33 @@ cd Online-Restaurant-Reservation
 pip install -r requirements.txt
 ```
 
-## 3️⃣ Configure environment variables
+## 3️⃣Set Flask environment variables
+```
+# Windows (CMD)
+set FLASK_APP=app.py
+set FLASK_ENV=development
+```
+```
+export FLASK_APP=app.py
+export FLASK_ENV=development
+```
+
+## 4️⃣ Initialize the database
+```
+python
+>>> from app import db
+>>> db.create_all()
+>>> exit()
+```
+
+## 5️⃣ Configure environment variables
 Create a .env file (or set environment variables manually) and add:
 ```
 SECRET_KEY=
 ```
 The SECRET_KEY is not included in the repository for security reasons.
 
-## 4️⃣ Run the development server
+## 5️⃣ Run the development server
 ```
 python app.py
 ```
