@@ -29,6 +29,11 @@ The screenshots above demonstrate the main pages and functionality of the online
 <img src="screenshots/menu_part_two.png" width="70%"/>
 </p>
 
+## 🛒 Cart
+<p align="center">
+<img src="screenshots/cart.png" width="70%"/>
+</p>
+
 ## 🗓️ Booking Pages
 <p align="center">
 <img src="screenshots/booking.png" width="45%"/>
@@ -37,11 +42,6 @@ The screenshots above demonstrate the main pages and functionality of the online
 <br>
 <p align="center">
 <img src="screenshots/confirmation.png" width="70%"/>
-</p>
-
-## 🛒 Cart
-<p align="center">
-<img src="screenshots/cart.png" width="70%"/>
 </p>
 
 ## 🛠️ Admin Panel
