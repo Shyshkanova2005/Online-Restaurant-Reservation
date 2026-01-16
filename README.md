@@ -25,15 +25,16 @@ The screenshots above demonstrate the main pages and functionality of the online
 
 ## 📋 Menu Page
 <p align="center">
-<img src="screenshots/menu_part_one.png" width="45%"/>
-<img src="screenshots/menu_part_two.png" width="45%"/>
+<img src="screenshots/menu_part_one.png" width="70%"/>
+<img src="screenshots/menu_part_two.png" width="70%"/>
 </p>
 
-## 🗓️ Booking Page
+## 🗓️ Booking Pages
 <p align="center">
 <img src="screenshots/booking.png" width="45%"/>
 <img src="screenshots/contacts.png" width="45%"/>
 </p>
+<br>
 <p align="center">
 <img src="screenshots/confirmation.png" width="70%"/>
 </p>
@@ -58,5 +59,26 @@ The screenshots above demonstrate the main pages and functionality of the online
 <img src="screenshots/profile.png" width="70%"/>
 </p>
 
+# 🚀 How to Run Locally
+## 1️⃣ Clone the repository
+```
+git clone https://github.com/Shyshkanova2005/Online-Restaurant-Reservation.git
+cd Online-Restaurant-Reservation
+```
 
+## 2️⃣ Install dependencies
+```
+pip install -r requirements.txt
+```
 
+## 3️⃣ Configure environment variables
+Create a .env file (or set environment variables manually) and add:
+```
+SECRET_KEY=
+```
+The SECRET_KEY is not included in the repository for security reasons.
+
+## 4️⃣ Run the development server
+```
+python app.py
+```
