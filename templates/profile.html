@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+{% block main_class %}centered-layout{% endblock %}
+{% block body_class %}bg-light{% endblock %}
+{% block content %}
+<main class="profile-page py-5">
+    <div class="container" style="max-width: 1100px;">
+        <div class="bg-white p-4 p-md-5 position-relative overflow-hidden">
+            
+            <div class="position-absolute top-0 end-0 p-4 opacity-10">
+                <img src="/static/uploads/logo.png" width="150" alt="">
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="user-card text-center p-4 rounded-4 bg-light border-0 shadow-sm">
+                        <div class="avatar-circle mx-auto mb-3 shadow-sm d-flex align-items-center justify-content-center bg-white text-uppercase fw-bold" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #a88d7a; color: #a88d7a; font-size: 1.5rem;">
+                            {{ g.user.username[0] if g.user else "G" }}
+                        </div>
+                        <h4 class="fw-bold mb-1" style="color: #4a3e35;">{{ g.user.username if g.user else "Гість" }}</h4>
+                        <p class="text-muted small mb-3">{{ g.user.email if g.user else "" }}</p>
+                        
+                        {% if g.customer %}
+                            <div class="d-inline-block px-3 py-1 rounded-pill bg-white border text-muted small mb-4">
+                                <i class="bi bi-telephone me-2"></i>{{ g.customer.phone }}
+                            </div>
+                        {% endif %}
+
+                        <hr class="my-4 opacity-50">
+
+                        <a href="{{ url_for('logout') }}" class="btn btn-misto-logout w-100 py-2 d-flex align-items-center justify-content-center">
+                            <span>Вийти з профілю</span>
+                            <i class="bi bi-box-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="p-2 rounded-3 bg-light me-3">
+                            <i class="bi bi-calendar-check fs-4" style="color: #a88d7a;"></i>
+                        </div>
+                        <h3 class="about-category-title mb-0" style="font-size: 2.2rem;">Мої бронювання</h3>
+                    </div>
+
+                    {% if g.bookings %}
+                    <div class="table-responsive mb-5 rounded-3 border">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="ps-4 py-3 text-uppercase small fw-bold text-muted">Дата та час</th>
+                                    <th class="py-3 text-uppercase small fw-bold text-muted">Стіл</th>
+                                    <th class="py-3 text-uppercase small fw-bold text-muted text-center">Гості</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for b in g.bookings %}
+                                <tr>
+                                    <td class="ps-4 py-3">
+                                        <div class="fw-bold">{{ b.day }}</div>
+                                        <div class="small text-muted">{{ b.time }}</div>
+                                    </td>
+                                    <td><span class="badge outline-misto text-dark">№{{ b.table_ref.table_number }}</span></td>
+                                    <td class="text-center">{{ b.guests }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="text-center py-5 bg-light rounded-4 mb-5 border-dashed">
+                        <p class="text-muted mb-0">У вас ще немає активних бронювань.</p>
+                    </div>
+                    {% endif %}
+
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="p-2 rounded-3 bg-light me-3">
+                            <i class="bi bi-bag-check fs-4" style="color: #a88d7a;"></i>
+                        </div>
+                        <h3 class="about-category-title mb-0" style="font-size: 2.2rem;">Історія замовлень</h3>
+                    </div>
+
+                    {% set has_orders = false %}
+                    <div class="row g-3">
+                        {% for b in g.bookings %}
+                            {% if b.order_items %}
+                                {% set has_orders = true %}
+                                <div class="col-12">
+                                    <div class="order-card p-4 rounded-4 border bg-white shadow-sm transition-hover">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h6 class="fw-bold mb-0">{{ b.day }}</h6>
+                                            <span class="small text-muted">{{ b.time }}</span>
+                                        </div>
+                                        <div class="order-items small">
+                                            {% for item in b.order_items %}
+                                                {% if item.menu_item %}
+                                                    <li class="d-flex justify-content-between py-1">
+                                                        <span>{{ item.menu_item.name }} <small class="text-muted">x{{ item.quantity }}</small></span>
+                                                        <span class="fw-semibold">{{ (item.menu_item.price * item.quantity)|round(2) }} ₴</span>
+                                                     </li>
+                                                {% else %}
+                                                <li class="text-danger">Страва не знайдена</li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                            <h6 class="d-flex justify-content-between fw-bold py-1">
+                                                <span>Загальна сума:</span>
+                                                <strong>{{ b.total_sum | round(2) }} ₴</strong>
+                                            </h6>
+                                        </div>
+                                    </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

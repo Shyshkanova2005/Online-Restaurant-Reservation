@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Menu{% endblock %}
+
+{% block body_class %}bg-light{% endblock %} 
+{% block content %}
+<div class="container my-5 menu-card py-5 bg-body-tertiary">
+  <div class="col-md-12 text-center py-5">
+    <h2 class="heading-title">Меню</h2>  
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+    {% for item in menu_items %}
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0 rounded-4">
+          <img src="{{ item.image_url }}" class="card-img-top" alt="{{ item.title }}">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h6 class="card-title fw-semibold">{{ item.title }}</h6>
+            <form method="POST" action="{{ url_for('add_to_cart') }}" class="d-flex justify-content-between align-items-center mt-auto w-100">
+              <input type="hidden" name="item_id" value="{{ item.id }}">
+              <input type="hidden" name="title" value="{{ item.title }}">
+              <input type="hidden" name="price" value="{{ item.price }}">
+              <span class="fw-bold">{{ item.price }}₴</span>
+              <button type="submit" class="btn-misto-outline rounded-2 px-3 py-1"> ДОДАТИ</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+

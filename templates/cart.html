@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Cart{% endblock %}
+{% block body_class %}bg-light{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="card" style="width: 100%; max-width: 600px;">
+    <div class="card-body text-center">
+      <h2>Ваш кошик</h2>
+        {% if cart %}
+          <ul class="list-group list-group-flush">
+            {% for item in cart %}
+              <li class="list-group-item py-3">
+                <div class="row align-items-center">
+                  <div class="col text-start">
+                    <div class="fw-bold text-dark mb-1">{{ item.title }}</div>
+                      <div class="text-muted small">
+                        <span>{{ item.quantity }} шт</span>
+                        <span class="mx-2 text-secondary opacity-50">|</span>
+                        <span class="fw-semibold">{{ item.price }} ₴</span>
+                      </div>
+                  </div>
+                  <div class="col-auto">
+                    <form method="POST" action="{{ url_for('remove_from_cart', item_index=loop.index0) }}">
+                      <button type="submit" class="btn btn-link text-danger p-0 text-decoration-none">
+                      <i class="bi bi-x-lg fs-5"></i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </li>
+      {% endfor %}
+      </ul>
+      {% else %}
+        <p>Кошик порожній.</p>
+      {% endif %}
+      <div class="mt-3">
+        <a href="{{ url_for('menu') }}" class="btn btn-primary">⬅ Назад до меню</a>   
+        <a href="{{ url_for('booking') }}" class="btn btn-warning">Бронювання</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

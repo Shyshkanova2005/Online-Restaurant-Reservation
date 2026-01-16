@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Booking{% endblock %}
+
+{% block main_class %}centered-layout{% endblock %}
+{% block body_class %}bg-light{% endblock %} 
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+        <div class="card p-4" style="width: 40rem; height: 30rem;">
+            <h1>Резервація</h1>   
+            <form action="{{ url_for('booking') }}" method="POST" enctype="multipart/form-data">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="day">Коли?</label>
+                            <select class="form-select" name="day" id="day">
+                                <option value="Понеділок">Понеділок</option>
+                                <option value="Вівторок">Вівторок</option>
+                                <option value="Середа">Середа</option>
+                                <option value="Четвер">Четвер</option>
+                                <option value="П'ятниця">П'ятниця</option>
+                                <option value="Субота">Субота</option>
+                                <option value="Неділя">Неділя</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="guests">Кількість гостей</label>
+                            <select class="form-select" name="guests" id="guests">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label for="time">Оберіть час</label>
+                            <select class="form-select" name="time" id="time">
+                                <option value="9:00">9:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="during">Тривалість відвідування</label>
+                            <select class="form-select" name="during" id="during">
+                                <option value="2 години">~2 г</option>
+                                <option value="3 години">~3 г</option>
+                                <option value="4 години">~4 г</option>
+                                <option value="5 годин">~5 г</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="table">Стіл</label>
+                           <select class="form-select" name="table_id" id="table_id">
+                               {% for table in tables %}
+                                <option value="{{ table.id }}">Стіл №{{ table.table_number }} ({{ table.seats }} місць)</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+    
+                    <br>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-danger btn-lg">Далі</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

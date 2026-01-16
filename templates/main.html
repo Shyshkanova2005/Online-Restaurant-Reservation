@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block body_class %}bg-white no-padding{% endblock %}
+{% block content %}
+<main class="site-main">
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <img src="{{ url_for('static', filename='uploads/restaurat.avif') }}" class="hero-img" alt="Misto Restaurant">
+        <div class="container-fluid hero-container">
+            <div class="hero-content text-center">
+                <p class="hero-label">WELCOME TO</p>
+                <h1 class="hero-title">MISTO</h1>
+                <p class="hero-subtitle">МІСЦЕ ТВОГО ВІДПОЧИНКУ</p>
+                <div class="hero-actions">
+                    <a class="btn-misto-fill" href="{{ url_for('booking') }}">ЗАБРОНЮВАТИ СТІЛ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about-section py-5">
+    <div class="container py-5">
+        <div class="row align-items-center">
+             <div class="col-md-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="about-img-large">
+                            <img src="{{ url_for('static', filename='uploads/drink.avif') }}" class="img-fluid shadow-sm" alt="Interior">
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex flex-column justify-content-between">
+                        <div class="about-img-small mb-3">
+                            <img src="{{ url_for('static', filename='uploads/food_three.avif') }}" class="img-fluid shadow-sm" alt="Food 1">
+                        </div>
+                        <div class="about-img-small">
+                            <img src="{{ url_for('static', filename='uploads/breakfast_two.jpg') }}" class="img-fluid shadow-sm" alt="Food 2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 ps-md-5">
+                 <div class="about-content text-center text-md-start">
+                    <h3 class="about-category-title">Про нас</h3>
+                    <div class="divider-silver ms-md-0"></div>
+                    <div class="about-description  py-5">
+                        <p class="about-restaurant">Ласкаво просимо до <b>MISTO</b> — ресторану на набережній, де чудова їжа зустрічається з неперевершеним видом на воду. 
+                        Тут кожна страва створена з любов’ю, а затишна атмосфера дозволяє насолоджуватися моментом у колі друзів, родини або на романтичній вечері.</p>
+                        
+                        <p class="about-restaurant">У <b>MISTO</b> ми поєднуємо свіжі інгредієнти, авторські рецепти та гостинність нашої команди, щоб кожен візит став особливим. Відкрийте для себе нові смаки та насолоду на набережній — там, де міська енергія зустрічається з відпочинком.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="menu">
+        <div class="dish-section">
+        <div class="container pt-5 pb-0" >
+            <div class="row align-items-center mb-5">
+                <div class="col-md-12 text-center mb-5">
+                    <h2 class="heading-title">Перегляньте наші</h2>
+                    <h5 class="heading">Деякі страви</h5>
+                <div class="divider-silver"></div>    
+                </div>
+            <div class="row align-items-stretch mb-0">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="image-wrapper h-100">
+                        <img src="{{ url_for('static', filename='uploads/breakfast.avif') }}" class="img-fluid" alt="Breakfast">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="menu-box h-100 d-flex flex-column justify-content-center">
+                    <h3 class="menu-category-title text-center">Сніданки ALL DAY</h3>
+                    <div class="divider-gold"></div>
+                
+                    <ul class="menu-list list-unstyled">
+                        <li class="d-flex justify-content-between align-items-baseline">
+                            <span class="dish-name">Оладок з цукіні, яйцем пашот та слабосоленою фореллю</span>
+                            <span class="dish-price">490 ₴</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-baseline">
+                            <span class="dish-name">Скрембл з мортаделою</span>
+                            <span class="dish-price">430 ₴</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-baseline">
+                            <span class="dish-name">Скрембл з лососем</span>
+                            <span class="dish-price">410 ₴</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-baseline">
+                            <span class="dish-name">Англійський сніданок</span>
+                            <span class="dish-price">290 ₴</span>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-baseline">
+                            <span class="dish-name">Сирники з солоною карамеллю та сметаною</span>
+                            <span class="dish-price">280 ₴</span>
+                        </li>
+                    </ul>
+                    <div class="hero-actions py-5">
+                       <a class="btn-misto-outline" href="{{ url_for('menu') }}">МЕНЮ</a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</main>
+{% endblock %}

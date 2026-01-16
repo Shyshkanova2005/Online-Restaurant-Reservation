@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Authorize{% endblock %}
+
+{% block body_class %}bg-light{% endblock %} 
+{% block main_class %}centered-layout{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+            <div class="card p-4" style="width: 40rem; height: 25rem;">
+                    <h3 class="text-center mb-4">Вхід до акаунту</h3>
+                    <form method="POST" action="{{ url_for('authorize') }}">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Логін</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pass" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-danger btn-lg">Увійти</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Ще не маєте акаунту? <a href="{{ url_for('register') }}">Зареєструватися</a></p>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
